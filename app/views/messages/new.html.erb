@@ -1,0 +1,19 @@
+
+
+<%= form_for (@message) do |f| %>
+<p>
+	<%= f.label :Mensagem %>
+	<%= f.text_area :content, cols:30, rows:5 %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>
+
+<% if !@messages.blank? %>
+	<ul>
+		<% @messages.each do |message| %>
+			<li> <%= message.content %> </li>
+		<% end %>
+	</ul>
+<% end %>
