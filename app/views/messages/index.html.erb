@@ -2,6 +2,7 @@
 
 <ul>
 	<% @messages.each do |message| %>
-	<li> <%= message.content %> </li>
+	<li> <%= message.content %> - <%= link_to "for this message", message %> </li>
+	<p>  </p>
 	<% end %>
 </ul>

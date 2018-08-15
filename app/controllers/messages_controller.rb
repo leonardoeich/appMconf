@@ -16,4 +16,19 @@ class MessagesController < ApplicationController
 			redirect_to new_message_path
 		end
 	end
+
+	def edit
+	end
+
+	def show
+		@message = Message.find(params[:id])
+	end
+
+	def update 
+	end
+
+	def destroy
+	end
+
 end
+
