@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 	def index #action index
+		@message = Message.new
 		@messages = Message.all
 	end
 
@@ -13,7 +14,7 @@ class MessagesController < ApplicationController
 		message_params = params.require(:message).permit(:content)
 		@message = Message.new(message_params)
 		if @message.save
-			redirect_to new_message_path
+			redirect_to root_path
 		end
 	end
 
