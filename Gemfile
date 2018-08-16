@@ -28,9 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass'
 gem 'compass-rails', github: 'Compass/compass-rails'
-
-
-
+gem  'rails_autolink'
+gem 'jquery-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

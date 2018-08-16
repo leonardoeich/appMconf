@@ -1,37 +1,27 @@
 <div id="container">
 
-<!-- 	<form>
-	  <div class="form-group">
-	    <label for="exampleFormControlTextarea1">What is happening?</label>
-	    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-	  </div>
-	</form> -->
-
-
 	<%= form_for (@message) do |f| %>
-	<div class="form-group">
-		<%= f.label :"What is happening?" %>
-		<%= f.text_area :content, rows:4, class: "form-control" %>
-	</div>
-	<p>
-		<%= f.submit "Post!" %>
-	</p>
+		<div class="form-group">
+			<%= f.label :"What is happening?" %>
+			<%= f.text_area :content, rows:4, class: "form-control" %>
+		</div>
+		<p>
+			<%= f.submit "Post!" %>
+		</p>
 	<% end %>
 
 	<h1>All messages</h1>
 
 	<ul id="posts">
 		<% @messages.each do |message| %>
-		<li id="post">
+		<li class= "post">
 			<p>
-				<%=  message.created_at.strftime("%d/%m/%y: %H:%M") %> -
+				<%=  message.created_at.strftime("%d/%m/%y %Hh:%M") %> -
 				<a href="messages/<%= message.id %> "> <i class="fas fa-pen"></i> </a>	
 			</p>
-
-			<p>
-				<%= message.content %>  
+			<p class="message-content">
+				<%= auto_link(message.content) %>
 			</p>
-
 		</li>  
 		<% end %>
 	</ul>

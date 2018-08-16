@@ -14,3 +14,47 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery3
+//= require jquery_ujs
+
+var colors = ['#481E9D', '#8D74C0', '#CA4B57', '#2B2D42', '#1C77C3', '#81B29A', '#E98039'];
+var isBackGroundChanged = false;
+
+$(document).ready(function(){
+
+	var classMconf = "<span class=\"mconf\">Mconf</span>";
+
+	$('.message-content').each(function(){
+        $(this).html($(this).html().replace(/mconf/gi, classMconf));
+	});
+
+	// pick a random color to the word mconf
+	$('.mconf').each(function(){
+		$(this).css('color', pickColor());
+	});
+
+
+	$('textarea').keyup(function(event){
+
+		var a = 65, z=90;
+
+		var currentText = $(this).val().replace(/mconf/gi, 'mconf');
+
+		// check if text contains "mconf" in any format and check if it's
+		if (currentText.includes("mconf")){
+			// if isBackGround is not changed, pick a random color and set as current background
+			if (!isBackGroundChanged){
+				$("body").css("background-color",pickColor());
+				isBackGroundChanged = true;
+			}
+		} else {
+			$("body").css("background-color", "white");
+			isBackGroundChanged = false;
+		}
+	})
+
+});
+
+function pickColor() {
+    return colors[Math.floor((Math.random() * (colors.length - 1)))];
+}
